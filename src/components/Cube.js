@@ -35,24 +35,28 @@ export const Cube = ({ position, ...props }) => {
         e.stopPropagation();
         const clickedFace = Math.floor(e.faceIndex / 2);
         const { x, y, z } = ref.current.position;
-        if (clickedFace === 4) {
-          e.altKey ? removeCube(x, y, z) : addCube(x, y, z + 1, texture);
-          return;
-        }
-        if (clickedFace === 2) {
-          e.altKey ? removeCube(x, y, z) : addCube(x, y + 1, z, texture);
+        if (clickedFace === 0) {
+          e.altKey ? removeCube(x, y, z) : addCube(x + 1, y, z, texture);
           return;
         }
         if (clickedFace === 1) {
           e.altKey ? removeCube(x, y, z) : addCube(x - 1, y, z, texture);
           return;
         }
-        if (clickedFace === 5) {
-          e.altKey ? removeCube(x, y, z) : addCube(x, y, z - 1, texture);
+        if (clickedFace === 2) {
+          e.altKey ? removeCube(x, y, z) : addCube(x, y + 1, z, texture);
           return;
         }
         if (clickedFace === 3) {
           e.altKey ? removeCube(x, y, z) : addCube(x, y - 1, z, texture);
+          return;
+        }
+        if (clickedFace === 4) {
+          e.altKey ? removeCube(x, y, z) : addCube(x, y, z + 1, texture);
+          return;
+        }
+        if (clickedFace === 5) {
+          e.altKey ? removeCube(x, y, z) : addCube(x, y, z - 1, texture);
           return;
         }
       }}
