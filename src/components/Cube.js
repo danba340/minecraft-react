@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useStore } from '../store';
 import * as textures from '../textures';
 
-export const Cube = ({ position, ...props }) => {
+export const Cube = ({ position, type, ...props }) => {
   const [hover, set] = useState(null);
   const [addCube, removeCube, texture] = useStore((state) => [
     state.addCube,
@@ -18,7 +18,7 @@ export const Cube = ({ position, ...props }) => {
     ...props,
   }));
 
-  const color = props.type === 'glass' ? 'skyblue' : 'white';
+  const color = type === 'glass' ? 'skyblue' : 'white';
 
   return (
     <mesh
@@ -64,10 +64,10 @@ export const Cube = ({ position, ...props }) => {
       {[...Array(6)].map((_, index) => (
         <meshStandardMaterial
           attachArray="material"
-          map={textures[props.type]}
+          map={textures[type]}
           key={index}
           color={hover === index ? 'gray' : color}
-          opacity={props.type === 'glass' ? 0.7 : 1}
+          opacity={type === 'glass' ? 0.7 : 1}
           transparent={true}
         />
       ))}
