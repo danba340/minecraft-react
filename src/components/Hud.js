@@ -51,10 +51,9 @@ const MaterialContainer = ({ args, color, activeTexture, ...props }) => {
 
 export const Hud = ({ position }) => {
   const { camera } = useThree();
-  const [props, set] = useState(() => ({
+  const [hudState, setHudState] = useState(() => ({
     position: camera.position,
     rotation: [0, 0, 0],
-    config: { mass: 1, friction: 20, tension: 500 },
     opacity: 0,
   }));
   const [hudVisible, setHudVisible] = useState(false);
@@ -62,7 +61,7 @@ export const Hud = ({ position }) => {
   useFrame(() => {
     const { x, y, z } = camera.position;
     const { x: rotX, y: rotY, z: rotZ } = camera.rotation;
-    set({
+    setHudState({
       position: [x, y, z],
       rotation: [rotX, rotY, rotZ],
       opacity: hudVisible ? 1 : 0,
@@ -80,8 +79,8 @@ export const Hud = ({ position }) => {
   }, [setHudVisible, activeTexture]);
   return (
     hudVisible && (
-      <group position={props.position} rotation={props.rotation}>
-        <group position={position}>
+      <group position={position}>
+        <group position={hudState.position} rotation={hudState.rotation}>
           <MaterialContainer
             args={[1.3, 0.3, 0.01]}
             color="#222"

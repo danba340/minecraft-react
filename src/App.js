@@ -1,15 +1,12 @@
 import React from 'react';
 import { Canvas } from 'react-three-fiber';
 import { Sky } from 'drei';
-import { Vector3 } from 'three';
 import { Physics } from 'use-cannon';
 import { Ground } from './components/Ground';
 import { Cube } from './components/Cube';
-import { Camera } from './components/Camera';
 import { Player } from './components/Player';
 import { Hud } from './components/Hud';
 import { useStore } from './store';
-import { coordToKey } from './utils';
 import { useInterval } from './hooks/useInterval';
 
 function App() {
@@ -28,18 +25,19 @@ function App() {
   );
 
   return (
-    <Canvas shadowMap sRGB gl={{ alpha: false }}>
-      <Camera />
-      <Sky sunPosition={new Vector3(100, 10, 100)} />
-      <ambientLight intensity={0.3} />
-      <pointLight castShadow intensity={0.8} position={[100, 100, 100]} />
+    <Canvas shadowMap sRGB>
+      <Sky sunPosition={[100, 20, 100]} />
+      <ambientLight intensity={0.25} />
+      <pointLight castShadow intensity={0.7} position={[100, 100, 100]} />
       <Hud position={[0, 0, -2]} />
       <Physics gravity={[0, -30, 0]}>
         <Ground position={[0, 0.5, 0]} />
         <Player position={[0, 3, 10]} />
         {cubes.map((cube) => (
           <Cube
-            key={coordToKey(...cube.pos)}
+            key={cube.pos
+              .map((coord) => coord.toString().padStart(3, '0'))
+              .join('')}
             type={cube.type}
             position={cube.pos}
           />
