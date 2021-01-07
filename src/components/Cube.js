@@ -4,9 +4,9 @@ import { useState } from 'react';
 import { useStore } from '../hooks/useStore';
 import * as textures from '../textures';
 
-export const Cube = ({ position, type, ...props }) => {
+export const Cube = ({ position, texture, ...props }) => {
   const [hover, setHover] = useState(null);
-  const [addCube, removeCube, texture] = useStore((state) => [
+  const [addCube, removeCube, cubeTexture] = useStore((state) => [
     state.addCube,
     state.removeCube,
     state.texture,
@@ -18,7 +18,7 @@ export const Cube = ({ position, type, ...props }) => {
     ...props,
   }));
 
-  const color = type === 'glass' ? 'skyblue' : 'white';
+  const color = texture === 'glass' ? 'skyblue' : 'white';
 
   return (
     <mesh
@@ -36,27 +36,27 @@ export const Cube = ({ position, type, ...props }) => {
         const clickedFace = Math.floor(e.faceIndex / 2);
         const { x, y, z } = ref.current.position;
         if (clickedFace === 0) {
-          e.altKey ? removeCube(x, y, z) : addCube(x + 1, y, z, texture);
+          e.altKey ? removeCube(x, y, z) : addCube(x + 1, y, z, cubeTexture);
           return;
         }
         if (clickedFace === 1) {
-          e.altKey ? removeCube(x, y, z) : addCube(x - 1, y, z, texture);
+          e.altKey ? removeCube(x, y, z) : addCube(x - 1, y, z, cubeTexture);
           return;
         }
         if (clickedFace === 2) {
-          e.altKey ? removeCube(x, y, z) : addCube(x, y + 1, z, texture);
+          e.altKey ? removeCube(x, y, z) : addCube(x, y + 1, z, cubeTexture);
           return;
         }
         if (clickedFace === 3) {
-          e.altKey ? removeCube(x, y, z) : addCube(x, y - 1, z, texture);
+          e.altKey ? removeCube(x, y, z) : addCube(x, y - 1, z, cubeTexture);
           return;
         }
         if (clickedFace === 4) {
-          e.altKey ? removeCube(x, y, z) : addCube(x, y, z + 1, texture);
+          e.altKey ? removeCube(x, y, z) : addCube(x, y, z + 1, cubeTexture);
           return;
         }
         if (clickedFace === 5) {
-          e.altKey ? removeCube(x, y, z) : addCube(x, y, z - 1, texture);
+          e.altKey ? removeCube(x, y, z) : addCube(x, y, z - 1, cubeTexture);
           return;
         }
       }}
@@ -64,10 +64,10 @@ export const Cube = ({ position, type, ...props }) => {
       {[...Array(6)].map((_, index) => (
         <meshStandardMaterial
           attachArray="material"
-          map={textures[type]}
+          map={textures[texture]}
           key={index}
           color={hover === index ? 'gray' : color}
-          opacity={type === 'glass' ? 0.7 : 1}
+          opacity={texture === 'glass' ? 0.7 : 1}
           transparent={true}
         />
       ))}

@@ -37,7 +37,7 @@ function App() {
         <Ground position={[0, 0.5, 0]} />
         <Player position={[0, 3, 10]} />
         {cubes.map((cube) => (
-          <Cube key={nanoid()} type={cube.type} position={cube.pos} />
+          <Cube key={nanoid()} texture={cube.texture} position={cube.pos} />
         ))}
       </Physics>
     </Canvas>
