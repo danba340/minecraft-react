@@ -5,7 +5,7 @@ import { useStore } from '../hooks/useStore';
 import * as textures from '../textures';
 
 export const Cube = ({ position, type, ...props }) => {
-  const [hover, set] = useState(null);
+  const [hover, setHover] = useState(null);
   const [addCube, removeCube, texture] = useStore((state) => [
     state.addCube,
     state.removeCube,
@@ -26,10 +26,10 @@ export const Cube = ({ position, type, ...props }) => {
       ref={ref}
       onPointerMove={(e) => {
         e.stopPropagation();
-        set(Math.floor(e.faceIndex / 2));
+        setHover(Math.floor(e.faceIndex / 2));
       }}
       onPointerOut={() => {
-        set(null);
+        setHover(null);
       }}
       onClick={(e) => {
         e.stopPropagation();
