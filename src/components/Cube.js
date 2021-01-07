@@ -6,7 +6,7 @@ import * as textures from '../textures';
 
 export const Cube = ({ position, texture, ...props }) => {
   const [hover, setHover] = useState(null);
-  const [addCube, removeCube, cubeTexture] = useStore((state) => [
+  const [addCube, removeCube, activeTexture] = useStore((state) => [
     state.addCube,
     state.removeCube,
     state.texture,
@@ -36,27 +36,27 @@ export const Cube = ({ position, texture, ...props }) => {
         const clickedFace = Math.floor(e.faceIndex / 2);
         const { x, y, z } = ref.current.position;
         if (clickedFace === 0) {
-          e.altKey ? removeCube(x, y, z) : addCube(x + 1, y, z, cubeTexture);
+          e.altKey ? removeCube(x, y, z) : addCube(x + 1, y, z, activeTexture);
           return;
         }
         if (clickedFace === 1) {
-          e.altKey ? removeCube(x, y, z) : addCube(x - 1, y, z, cubeTexture);
+          e.altKey ? removeCube(x, y, z) : addCube(x - 1, y, z, activeTexture);
           return;
         }
         if (clickedFace === 2) {
-          e.altKey ? removeCube(x, y, z) : addCube(x, y + 1, z, cubeTexture);
+          e.altKey ? removeCube(x, y, z) : addCube(x, y + 1, z, activeTexture);
           return;
         }
         if (clickedFace === 3) {
-          e.altKey ? removeCube(x, y, z) : addCube(x, y - 1, z, cubeTexture);
+          e.altKey ? removeCube(x, y, z) : addCube(x, y - 1, z, activeTexture);
           return;
         }
         if (clickedFace === 4) {
-          e.altKey ? removeCube(x, y, z) : addCube(x, y, z + 1, cubeTexture);
+          e.altKey ? removeCube(x, y, z) : addCube(x, y, z + 1, activeTexture);
           return;
         }
         if (clickedFace === 5) {
-          e.altKey ? removeCube(x, y, z) : addCube(x, y, z - 1, cubeTexture);
+          e.altKey ? removeCube(x, y, z) : addCube(x, y, z - 1, activeTexture);
           return;
         }
       }}
