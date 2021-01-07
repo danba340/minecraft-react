@@ -7,7 +7,7 @@ import { useStore } from '../hooks/useStore';
 export const Ground = (props) => {
   const [ref] = usePlane(() => ({ rotation: [-Math.PI / 2, 0, 0], ...props }));
   const texture = new TextureLoader().load(grass);
-  const [addCube, cubeTexture] = useStore((state) => [
+  const [addCube, activeTexture] = useStore((state) => [
     state.addCube,
     state.texture,
   ]);
@@ -24,7 +24,7 @@ export const Ground = (props) => {
         const [x, y, z] = Object.values(e.point).map((coord) =>
           Math.ceil(coord),
         );
-        addCube(x, y, z, cubeTexture);
+        addCube(x, y, z, activeTexture);
       }}
     >
       <planeBufferGeometry attach="geometry" args={[100, 100]} />
