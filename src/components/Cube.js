@@ -1,7 +1,7 @@
 import React from 'react';
 import { useBox } from 'use-cannon';
 import { useState } from 'react';
-import { useStore } from '../store';
+import { useStore } from '../hooks/useStore';
 import * as textures from '../textures';
 
 export const Cube = ({ position, type, ...props }) => {

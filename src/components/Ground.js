@@ -2,7 +2,7 @@ import React from 'react';
 import { usePlane } from 'use-cannon';
 import { TextureLoader, RepeatWrapping } from 'three';
 import grass from '../images/grass.jpg';
-import { useStore } from '../store';
+import { useStore } from '../hooks/useStore';
 
 export const Ground = (props) => {
   const [ref] = usePlane(() => ({ rotation: [-Math.PI / 2, 0, 0], ...props }));
