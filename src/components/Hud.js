@@ -24,7 +24,6 @@ const Material = ({ args, color, texture, isActive, ...props }) => {
 
 const MaterialContainer = ({ args, color, activeTexture, ...props }) => {
   const activeTextureIndex = Object.keys(textures).indexOf(activeTexture);
-  console.log(activeTextureIndex);
   return (
     <mesh {...props}>
       {Object.keys(textures).map((key, index) => {

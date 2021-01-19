@@ -14,7 +14,6 @@ export const Ground = (props) => {
   texture.wrapS = RepeatWrapping;
   texture.wrapT = RepeatWrapping;
   texture.repeat.set(100, 100);
-
   return (
     <mesh
       ref={ref}

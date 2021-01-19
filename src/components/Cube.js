@@ -1,25 +1,17 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useBox } from 'use-cannon';
 import { useState } from 'react';
-import { useStore } from '../hooks/useStore';
 import * as textures from '../textures';
 
-export const Cube = ({ position, texture, ...props }) => {
+const Cube = ({ position, texture, addCube, removeCube }) => {
   const [hover, setHover] = useState(null);
-  const [addCube, removeCube, activeTexture] = useStore((state) => [
-    state.addCube,
-    state.removeCube,
-    state.texture,
-  ]);
 
   const [ref] = useBox(() => ({
     type: 'Static',
     position,
-    ...props,
   }));
 
   const color = texture === 'glass' ? 'skyblue' : 'white';
-
   return (
     <mesh
       castShadow
@@ -36,27 +28,27 @@ export const Cube = ({ position, texture, ...props }) => {
         const clickedFace = Math.floor(e.faceIndex / 2);
         const { x, y, z } = ref.current.position;
         if (clickedFace === 0) {
-          e.altKey ? removeCube(x, y, z) : addCube(x + 1, y, z, activeTexture);
+          e.altKey ? removeCube(x, y, z) : addCube(x + 1, y, z);
           return;
         }
         if (clickedFace === 1) {
-          e.altKey ? removeCube(x, y, z) : addCube(x - 1, y, z, activeTexture);
+          e.altKey ? removeCube(x, y, z) : addCube(x - 1, y, z);
           return;
         }
         if (clickedFace === 2) {
-          e.altKey ? removeCube(x, y, z) : addCube(x, y + 1, z, activeTexture);
+          e.altKey ? removeCube(x, y, z) : addCube(x, y + 1, z);
           return;
         }
         if (clickedFace === 3) {
-          e.altKey ? removeCube(x, y, z) : addCube(x, y - 1, z, activeTexture);
+          e.altKey ? removeCube(x, y, z) : addCube(x, y - 1, z);
           return;
         }
         if (clickedFace === 4) {
-          e.altKey ? removeCube(x, y, z) : addCube(x, y, z + 1, activeTexture);
+          e.altKey ? removeCube(x, y, z) : addCube(x, y, z + 1);
           return;
         }
         if (clickedFace === 5) {
-          e.altKey ? removeCube(x, y, z) : addCube(x, y, z - 1, activeTexture);
+          e.altKey ? removeCube(x, y, z) : addCube(x, y, z - 1);
           return;
         }
       }}
@@ -75,3 +67,14 @@ export const Cube = ({ position, texture, ...props }) => {
     </mesh>
   );
 };
+
+function equalProps(prevProps, nextProps) {
+  const equalPosition =
+    prevProps.position.x === nextProps.position.x &&
+    prevProps.position.y === nextProps.position.y &&
+    prevProps.position.z === nextProps.position.z;
+
+  return equalPosition && prevProps.texture === nextProps.texture;
+}
+
+export default memo(Cube, equalProps);
