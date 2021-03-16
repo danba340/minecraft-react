@@ -53,8 +53,7 @@ const Cube = ({ position, texture, addCube, removeCube }) => {
         }
       }}
     >
-      <boxBufferGeometry attach="geometry" /> <meshStandardMaterial attach="material" map={textures[texture]} color={hover ? 'gray' : color} opacity={texture === 'glass' ? 0.7 : 1} transparent={true} />
-      <boxBufferGeometry attach="geometry" />
+        <boxBufferGeometry attach="geometry" /> <meshStandardMaterial attach="material" map={textures[texture]} color={hover!=null ? 'gray' : color} opacity={texture === 'glass' ? 0.7 : 1} transparent={true} />
     </mesh>
   );
 };
