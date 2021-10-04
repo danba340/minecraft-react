@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useFrame, useThree } from 'react-three-fiber';
+import { useFrame, useThree } from '@react-three/fiber';
 import { useStore } from '../hooks/useStore';
 import * as textures from '../textures';
 
