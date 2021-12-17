@@ -2,12 +2,12 @@ import React from 'react';
 import { usePlane } from 'use-cannon';
 import { TextureLoader, RepeatWrapping, NearestFilter, LinearMipMapLinearFilter } from 'three';
 
-import grass from '../images/grass.jpg';
+import glass from '../images/glass.png';
 
 
 export const Ground = (props) => {
   const [ref] = usePlane(() => ({ rotation: [-Math.PI / 2, 0, 0], ...props }));
-  const texture = new TextureLoader().load(grass);
+  const texture = new TextureLoader().load(glass);
 
  
   texture.magFilter = NearestFilter;
