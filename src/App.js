@@ -3,8 +3,14 @@ import { Canvas } from 'react-three-fiber';
 import { Sky, Stats, Stars } from 'drei';
 import { Physics } from 'use-cannon';
 import { Ground } from './components/Ground';
-import Cubes from './components/Cubes';
+import { Shape } from './components/Shape';
 import { Player } from './components/Player';
+import { UserInterFaceTest } from './components/UserInterFaceTest';
+
+
+
+
+
 
 
 function App() {
@@ -28,11 +34,11 @@ function App() {
 />
       <ambientLight intensity={0.25} />
       <pointLight castShadow intensity={0.7} position={[100, 100, 100]} />
-   
       <Physics gravity={[0, -30, 0]}>
         <Ground position={[0, 0.5, 0]} />
         <Player position={[0, 3, 10]} />
-        <Cubes />
+        <Shape position = {[0, 5, 11]} />
+        <UserInterFaceTest  />
       </Physics>
       <Stats /> 
     </Canvas>
