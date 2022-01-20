@@ -14,7 +14,7 @@ export const Ground = (props) => {
   texture.minFilter = LinearMipMapLinearFilter;
   texture.wrapS = RepeatWrapping;
   texture.wrapT = RepeatWrapping;
-  texture.repeat.set(300, 300);
+  texture.repeat.set(3000, 3000);
   return ( 
     <mesh
       ref={ref}
