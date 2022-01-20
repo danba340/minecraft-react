@@ -17,7 +17,7 @@ export  const UserInterFaceTest = () => {
           <Html position={[0, 0, 0]} distanceFactor={10}        center 
           
           >
-          <button className = "button-test"> this is a button
+          <button onClick= {console.log("this is a button")} className = "button-test"> this is a button
           </button>
           </Html>
       </mesh>
