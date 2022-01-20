@@ -26,3 +26,14 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
   color: black;
 }
+
+button{
+
+font-family:Arial;
+font-size:1rem;
+color:white;
+background:transparent;
+border: 1px solid red;
+font-size: 10px;
+width:100px;
+}
