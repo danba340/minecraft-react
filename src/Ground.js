@@ -10,7 +10,7 @@ export const Ground = (props) => {
   return (
     <mesh ref={ref} receiveShadow>
       <planeGeometry args={[1000, 1000]} />
-      <meshStandardMaterial map={texture} map-repeat={[10000, 10000]} color="white" />
+      <meshStandardMaterial map={texture} map-repeat={[100000, 100000]} color="white" />
     </mesh>
   )
 }

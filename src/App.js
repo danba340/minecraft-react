@@ -3,11 +3,10 @@ import { Sky, Stars,  PointerLockControls, Stats } from "@react-three/drei"
 import { Physics } from "@react-three/cannon"
 import { Ground } from "./Ground"
 import { Player } from "./Player"
-import { Cube, Cubes } from "./Cube"
+import { Cubes } from "./Cube"
 
-// The original was made by Maksim Ivanow: https://www.youtube.com/watch?v=Lc2JvBXMesY&t=124s
-// This demo needs pointer-lock, that works only if you open it in a new window
-// Controls: WASD + left click
+// refactored and updated to remove use-cannon and drei. Much more utilities available now. still need to fix some small lighting issues but almost there. 
+
 
 export default function App() {
   return (
@@ -15,7 +14,7 @@ export default function App() {
       <Stats />
       <Sky sunPosition={[100, 20, 100]} />
   <Stars />
-      <ambientLight intensity={0.3} />
+      <ambientLight intensity={0.5} />
       <pointLight castShadow intensity={0.8} position={[100, 100, 100]} />
       <Physics gravity={[0, -30, 0]}>
         <Ground />
