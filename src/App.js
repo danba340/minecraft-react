@@ -1,5 +1,5 @@
 import { Canvas } from "@react-three/fiber"
-import { Sky, PointerLockControls } from "@react-three/drei"
+import { Sky, Stars,  PointerLockControls } from "@react-three/drei"
 import { Physics } from "@react-three/cannon"
 import { Ground } from "./Ground"
 import { Player } from "./Player"
@@ -13,12 +13,13 @@ export default function App() {
   return (
     <Canvas shadows gl={{ alpha: false }} camera={{ fov: 45 }}>
       <Sky sunPosition={[100, 20, 100]} />
+  <Stars />
       <ambientLight intensity={0.3} />
       <pointLight castShadow intensity={0.8} position={[100, 100, 100]} />
       <Physics gravity={[0, -30, 0]}>
         <Ground />
         <Player />
-        <Cube position={[0, 0.5, -10]} />
+      
         <Cubes />
       </Physics>
       <PointerLockControls />
