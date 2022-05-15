@@ -1,39 +1,38 @@
+@import url('https://rsms.me/inter/inter.css');
+
 * {
   box-sizing: border-box;
 }
 
 html,
 body,
+main,
 #root {
   width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color: lightblue;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  overflow: hidden;
 }
 
 body {
-  position: fixed;
-  overflow: hidden;
-  overscroll-behavior-y: none;
-  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
+  font-family: inter;
   color: black;
+  background: #202025;
 }
 
-button{
+.content {
+  width: 334px;
+  height: 216px;
+  background: #f0f0f0;
+  border-radius: 3px;
+  overflow-y: auto;
+  padding: 0;
+}
 
-font-family:Arial;
-font-size:1rem;
-color:white;
-background:transparent;
-border: 1px solid red;
-font-size: 10px;
-width:100px;
+.wrapper {
+  padding: 10px;
+  width: 668px;
+  height: 432px;
+  transform: scale(0.5);
+  transform-origin: top left;
 }

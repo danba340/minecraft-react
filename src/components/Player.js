@@ -56,8 +56,9 @@ export const Player = (props) => {
   });
   return (
     <>
+    
       <FPVControls />
       <mesh ref={ref} />
     </>
-  );
+  ); 
 };

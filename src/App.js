@@ -5,6 +5,14 @@ import { Physics } from 'use-cannon';
 import { Ground } from './components/Ground';
 import Cubes from './components/Cubes';
 import { Player } from './components/Player';
+import { UserInterFaceTest} from "./components/UserInterFaceTest";
+
+
+
+
+
+
+
 
 
 function App() {
@@ -30,8 +38,10 @@ function App() {
       <pointLight castShadow intensity={0.7} position={[100, 100, 100]} />
    
       <Physics gravity={[0, -30, 0]}>
-        <Ground position={[0,0, 0]} />
-        <Player position={[0, 3, 10]} />
+      <UserInterFaceTest />
+        <Ground position={[0, 0, 0]} />
+        <Player position={[0, 0, 10]} />
+     
         <Cubes />
       </Physics>
       <Stats /> 
