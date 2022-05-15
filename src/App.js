@@ -1,52 +1,27 @@
-import React from 'react';
-import { Canvas } from 'react-three-fiber';
-import { Sky, Stats, Stars } from 'drei';
-import { Physics } from 'use-cannon';
-import { Ground } from './components/Ground';
-import Cubes from './components/Cubes';
-import { Player } from './components/Player';
-import { UserInterFaceTest} from "./components/UserInterFaceTest";
+import { Canvas } from "@react-three/fiber"
+import { Sky, PointerLockControls } from "@react-three/drei"
+import { Physics } from "@react-three/cannon"
+import { Ground } from "./Ground"
+import { Player } from "./Player"
+import { Cube, Cubes } from "./Cube"
 
+// The original was made by Maksim Ivanow: https://www.youtube.com/watch?v=Lc2JvBXMesY&t=124s
+// This demo needs pointer-lock, that works only if you open it in a new window
+// Controls: WASD + left click
 
-
-
-
-
-
-
-
-function App() {
+export default function App() {
   return (
-    <Canvas shadowMap sRGB>
-      <Sky sunPosition={[100, 20, 100]}
-      mieDirectionalG={0.275}
-  inclination={0} // Sun elevation angle from 0 to 1 (default=0)
-  azimuth={0.25}
-  rayleigh = {0.116}
-      
-       />
-
-<Stars
-  radius={100} // Radius of the inner sphere (default=100)
-  depth={50} // Depth of area where stars should fit (default=50)
-  count={5000} // Amount of stars (default=5000)
-  factor={4} // Size factor (default=4)
-  saturation={0} // Saturation 0-1 (default=0)
-  fade // Faded dots (default=false)
-/>
-      <ambientLight intensity={0.25} />
-      <pointLight castShadow intensity={0.7} position={[100, 100, 100]} />
-   
+    <Canvas shadows gl={{ alpha: false }} camera={{ fov: 45 }}>
+      <Sky sunPosition={[100, 20, 100]} />
+      <ambientLight intensity={0.3} />
+      <pointLight castShadow intensity={0.8} position={[100, 100, 100]} />
       <Physics gravity={[0, -30, 0]}>
-      <UserInterFaceTest />
-        <Ground position={[0, 0, 0]} />
-        <Player position={[0, 0, 10]} />
-     
+        <Ground />
+        <Player />
+        <Cube position={[0, 0.5, -10]} />
         <Cubes />
       </Physics>
-      <Stats /> 
+      <PointerLockControls />
     </Canvas>
-  );
+  )
 }
-
-export default App;

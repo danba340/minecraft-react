@@ -1,42 +1,45 @@
 {
-  "name": "minecraft-react",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "drei": "^1.4.0-alpha.0",
-    "nanoid": "^3.1.20",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-merge-refs": "^1.1.0",
-    "react-scripts": "3.4.3",
-    "react-spring": "^8.0.27",
-    "react-three-fiber": "^4.2.21",
-    "three": "^0.120.1",
-    "use-cannon": "^0.5.0",
-    "zustand": "^3.0.3"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
+    "name": "react-web-3d",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+      "@pmndrs/branding": "0.0.8",
+      "@react-three/cannon": "4.7.0",
+      "@react-three/drei": "8.10.5",
+      "@react-three/fiber": "7.0.26",
+      "@types/three": "0.137.0",
+      "react": "17.0.2",
+      "react-dom": "17.0.2",
+      "react-scripts": "5.0.0",
+      "simplex-noise": "3.0.1",
+      "three": "0.137.5",
+      "zustand": "3.7.0"
+    },
+    "scripts": {
+      "start": "react-scripts start",
+      "build": "react-scripts build",
+      "test": "react-scripts test",
+      "eject": "react-scripts eject"
+    },
+    "eslintConfig": {
+      "extends": "react-app"
+    },
+    "browserslist": {
+      "production": [
+        ">0.2%",
+        "not dead",
+        "not op_mini all"
+      ],
+      "development": [
+        "last 1 chrome version",
+        "last 1 firefox version",
+        "last 1 safari version"
+      ]
+    },
+    "keywords": [
+      "pointerlock-controls",
+      "game",
+      "minecraft"
     ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "description": "Mini Minecraft implementation."
   }
-}
