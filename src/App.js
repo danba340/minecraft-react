@@ -4,7 +4,7 @@ import { Physics } from "@react-three/cannon"
 import { Ground } from "./Ground"
 import { Player } from "./Player"
 import { Cubes } from "./Cube"
-
+import { UserInterFaceTest } from "./userInterfaceTest"
 // refactored and updated to remove use-cannon and drei. Much more utilities available now. still need to fix some small lighting issues but almost there. 
 
 
@@ -19,7 +19,7 @@ export default function App() {
       <Physics gravity={[0, -30, 0]}>
         <Ground />
         <Player />
-      
+      <UserInterFaceTest />
         <Cubes />
       </Physics>
       <PointerLockControls />

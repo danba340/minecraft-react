@@ -1,8 +1,7 @@
 import React from 'react'
-import {useBox} from 'use-cannon'
-import {  Html } from 'drei';
+import { useBox } from "@react-three/cannon"
+import { Html } from "@react-three/drei"
 
-import "../index.css"
 
 
 export  const UserInterFaceTest = () => {
