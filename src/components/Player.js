@@ -23,7 +23,7 @@ export const Player = (props) => {
   }, [api.velocity]);
 
   const pos = useRef([0, 0, 0]);
-  useEffect(() => api.position.subscribe((v) => (pos.current = v)), []);
+  useEffect(() => api.position.subscribe((v) => (pos.current = v)), [api.position]);
 
   useFrame(() => {
     camera.position.copy(
