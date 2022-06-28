@@ -1,6 +1,11 @@
 import React from 'react';
-import { usePlane } from 'use-cannon';
-import { TextureLoader, RepeatWrapping, NearestFilter, LinearMipMapLinearFilter } from 'three';
+import { usePlane } from '@react-three/cannon';
+import {
+  TextureLoader,
+  RepeatWrapping,
+  NearestFilter,
+  LinearMipMapLinearFilter,
+} from 'three';
 
 import grass from '../images/grass.jpg';
 import { useStore } from '../hooks/useStore';
@@ -25,7 +30,7 @@ export const Ground = (props) => {
       onClick={(e) => {
         e.stopPropagation();
         const [x, y, z] = Object.values(e.point).map((coord) =>
-          Math.ceil(coord),
+          Math.ceil(coord)
         );
         addCube(x, y, z, activeTexture);
       }}
