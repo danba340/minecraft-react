@@ -32,4 +32,11 @@ export const useStore = create((set) => ({
     set((state) => {
       setLocalStorage('world', state.cubes);
     }),
+  resetWorld: () =>
+    set((state) => {
+      setLocalStorage('world', []);
+      return ({
+        cubes: []
+      })
+    }),
 }));

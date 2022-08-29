@@ -18,13 +18,12 @@ export const BlockSelector = () => {
 
   return (
     visible && (
-      <div className="fixed centered scale3x block-selector">
+      <div className="fixed centered scale3x flex block-selector">
         {Object.entries(images).map(([key, value], i) => {
           return (
             <div key={key} className='relative'>
-              <span className='absolute'>{i + 1}</span>
+              <div className='absolute centered number flex'>{i + 1}</div>
               <img
-                isActive={activeTexture === key}
                 className={`${activeTexture === key ? "active" : ""}`}
                 src={value}
                 alt={key}

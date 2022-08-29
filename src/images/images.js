@@ -5,9 +5,9 @@ import logImg from './log.jpg';
 import woodImg from './wood.png';
 
 export const images = {
-	dirtImg,
-	grassImg,
-	glassImg,
-	logImg,
-	woodImg
+	dirt: dirtImg,
+	grass: grassImg,
+	glass: glassImg,
+	wood: woodImg,
+	log: logImg,
 }

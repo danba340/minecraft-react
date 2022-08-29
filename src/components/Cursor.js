@@ -1,6 +1,6 @@
 
-export const Cursor = () => {
+export const Cursor = ({ onClick }) => {
 	return (
-		<div className="fixed centered">+</div>
+		<div onClick={onClick} className="fixed centered cursor">+</div>
 	)
 }

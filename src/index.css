@@ -27,17 +27,40 @@ body {
   color: white;
 }
 
+.flex {
+  display: flex;
+}
+
 .fixed {
   position: fixed;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
 }
 
 .centered {
   top: 50%;
   left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .scale3x {
   transform: scale(3);
+}
+
+.block-selector .number {
+  font-size: 8px;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  background: black;
+  justify-content: center;
+  align-items: center;
 }
 
 .block-selector img {
@@ -45,5 +68,19 @@ body {
 }
 
 .block-selector img.active {
-  border: 2px solid green;
+  border: 2px solid red;
+}
+
+.menu {
+  top: 10px;
+  left: 10px;
+}
+
+.menu button {
+  margin-right: 5px;
+}
+
+.cursor {
+  cursor: pointer;
+  padding: 12px;
 }
