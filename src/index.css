@@ -24,5 +24,26 @@ body {
   overflow: hidden;
   overscroll-behavior-y: none;
   font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
-  color: black;
+  color: white;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.centered {
+  top: 50%;
+  left: 50%;
+}
+
+.scale3x {
+  transform: scale(3);
+}
+
+.block-selector img {
+  border: 2px solid transparent;
+}
+
+.block-selector img.active {
+  border: 2px solid green;
 }

@@ -13,11 +13,8 @@ export default function Cubes() {
   ]);
 
   useInterval(
-    () => {
-      saveWorld(cubes);
-    },
-    // every 10 seconds
-    10000,
+    () => saveWorld(cubes),
+    10000, // 10s
   );
 
   return cubes.map((cube) => {

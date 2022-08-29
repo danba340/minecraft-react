@@ -1,11 +1,10 @@
 import React, { memo } from 'react';
 import { useBox } from '@react-three/cannon';
 import { useState } from 'react';
-import * as textures from '../textures';
+import * as textures from '../images/textures';
 
 const Cube = ({ position, texture, addCube, removeCube }) => {
-  const [hover, setHover] = useState(null);
-
+  const [hover, setHover] = useState(null); // Tracking what side is hovered
   const [ref] = useBox(() => ({
     type: 'Static',
     position,
@@ -18,7 +17,7 @@ const Cube = ({ position, texture, addCube, removeCube }) => {
       ref={ref}
       onPointerMove={(e) => {
         e.stopPropagation();
-        setHover(Math.floor(e.faceIndex / 2));
+        setHover(Math.floor(e.faceIndex / 2)); // Each side has 2 triangular faces
       }}
       onPointerOut={() => {
         setHover(null);
@@ -65,7 +64,7 @@ const Cube = ({ position, texture, addCube, removeCube }) => {
   );
 };
 
-function equalProps(prevProps, nextProps) {
+function propsAreEqual(prevProps, nextProps) {
   const equalPosition =
     prevProps.position.x === nextProps.position.x &&
     prevProps.position.y === nextProps.position.y &&
@@ -74,4 +73,4 @@ function equalProps(prevProps, nextProps) {
   return equalPosition && prevProps.texture === nextProps.texture;
 }
 
-export default memo(Cube, equalProps);
+export default memo(Cube, propsAreEqual);

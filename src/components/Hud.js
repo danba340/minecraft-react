@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import { useStore } from '../hooks/useStore';
-import * as textures from '../textures';
+import * as textures from '../images/textures';
 
 const Material = ({ args, color, texture, isActive, ...props }) => {
   return (

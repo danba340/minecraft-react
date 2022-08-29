@@ -24,11 +24,15 @@ export const Ground = (props) => {
     state.addCube,
     state.texture,
   ]);
+
+  // Remove? 
   texture.magFilter = NearestFilter;
   texture.minFilter = LinearMipMapLinearFilter;
   texture.wrapS = RepeatWrapping;
   texture.wrapT = RepeatWrapping;
   texture.repeat.set(100, 100);
+  //
+
   return (
     <mesh
       ref={ref}
