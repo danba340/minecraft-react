@@ -16,18 +16,15 @@ function App() {
 
   return (
     <>
-      <Canvas
-        shadowMap
-        sRGB
-      >
+      <Canvas>
         <Sky sunPosition={[100, 20, 100]} />
-        <ambientLight intensity={0.25} />
+        <ambientLight intensity={0.3} />
         <pointLight castShadow intensity={0.7} position={[100, 100, 100]} />
         <FPVControls pointerLockRef={pointerLockRef} />
         <Physics gravity={[0, -30, 0]}>
+          <Cubes />
           <Ground position={[0, 0.5, 0]} />
           <Player position={[0, 3, 10]} />
-          <Cubes />
         </Physics>
       </Canvas>
       <BlockSelector />

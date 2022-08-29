@@ -7,7 +7,6 @@ export const BlockSelector = () => {
   const [activeTexture] = useStore((state) => [state.texture]);
 
   useEffect(() => {
-    setVisible(true);
     const hudVisibilityTimeout = setTimeout(() => {
       setVisible(false);
     }, 2000);

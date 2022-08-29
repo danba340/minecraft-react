@@ -54,8 +54,6 @@ export const Player = (props) => {
     }
   });
   return (
-    <>
-      <mesh ref={ref} />
-    </>
+    <mesh ref={ref} />
   );
 };

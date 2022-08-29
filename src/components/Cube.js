@@ -13,7 +13,6 @@ const Cube = ({ position, texture, addCube, removeCube }) => {
   const color = texture === 'glass' ? 'skyblue' : 'white';
   return (
     <mesh
-      castShadow
       ref={ref}
       onPointerMove={(e) => {
         e.stopPropagation();
@@ -56,7 +55,7 @@ const Cube = ({ position, texture, addCube, removeCube }) => {
       <meshStandardMaterial
         attach="material"
         map={textures[texture]}
-        color={hover != null ? 'gray' : color}
+        color={hover !== null ? 'gray' : color}
         opacity={texture === 'glass' ? 0.7 : 1}
         transparent={true}
       />
